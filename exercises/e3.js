@@ -9,7 +9,8 @@
  * */
 
 export function getAverage(array) {
-  // Your code goes here...
+  const sum = array.reduce((acc, curr) => acc + curr, 0);
+  return array.length === 0 ? 0 : sum / array.length;
 
 }
 
@@ -22,8 +23,11 @@ export function getAverage(array) {
  * */ 
 
 export function getStringSum(str) {
-  // Your code goes here...
-
+  const digits = str.match(/\d/g);
+  if (!digits) {
+    return 0;
+  }
+  return digits.map(Number).reduce((acc, curr) => acc + curr, 0);
 }
 
 
