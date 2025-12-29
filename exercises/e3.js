@@ -9,9 +9,12 @@
  * */
 
 export function getAverage(array) {
-  const sum = array.reduce((acc, curr) => acc + curr, 0);
-  return array.length === 0 ? 0 : sum / array.length;
-
+  const sum = [];
+  for (let i = 0; i < array.length; i++) {
+    sum.push(array[i]);
+  }
+  const total = sum.reduce((acc, curr) => acc + curr, 0);
+  return array.length === 0 ? 0 : total / array.length;
 }
 
 
@@ -23,11 +26,14 @@ export function getAverage(array) {
  * */ 
 
 export function getStringSum(str) {
-  const digits = str.match(/\d/g);
-  if (!digits) {
-    return 0;
+  const digits = [];
+  for (let i = 0; i < str.length; i++) {
+    const char = str[i];
+    if (!isNaN(char) && char !== ' ') {
+      digits.push(Number(char));
+    }
   }
-  return digits.map(Number).reduce((acc, curr) => acc + curr, 0);
+  return digits.length === 0 ? 0 : digits.reduce((acc, curr) => acc + curr, 0);
 }
 
 
